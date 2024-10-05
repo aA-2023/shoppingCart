@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"name": "shoppingCart",
+			"path": "../../../shoppingCart"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "shoppingCart"
+	}
+}
