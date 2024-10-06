@@ -50,7 +50,7 @@ keep in mind checkign sites runnign from local folder as well as live server for
 
 /* Declare an empty array named cart to hold the items in the cart */
 
-let cart = []; //! empty cart array... i guess will push product objects into it / update quanty key-value pairs?
+let cart = []; //! empty cart array... i guess will push product ofcarbjects into it / update quanty key-value pairs?
 
 /* Create a function named addProductToCart that takes in the product productId as an argument
 - addProductToCart should get the correct product based on the productId
@@ -131,11 +131,11 @@ function cartTotal() {
   ); //add up cost of all items with reduce array prototype
 
 
-  total = Math.round(total * 100); //round to cents and return total
+/*   total = Math.round(total * 100)/100; //round to cents and return total */
 
 
-  return ((total/100).toFixed(2));
-/*   return total; */
+// hmm, Udacity npm run test doesn't want decimals converted to 2 decimal places for cartTotal function.
+  return total;
 }
 /* Create a function called emptyCart that empties the products from the cart */
 
