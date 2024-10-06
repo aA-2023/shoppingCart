@@ -15,23 +15,31 @@ const products = [
     price: 0.59,
     quantity: 0,
     productId: 4045,
-    image: "../src/images/cherry.jpg",
+    image: "./images/cherry.jpg",
   },
 
   {
     name: "Orange",
-    price: 1.77,
+    price: 1.97,
     quantity: 0,
     productId: 3107,
-    image: "../src/images/orange.jpg",
+    image: "./images/orange.jpg",
   },
 
+/* Changing image URLs to what Udacity reviewer is asking:
+Current URL: "../src/images/<image-name>.jpg"
+
+Change it to be: "../images/<image-name>.jpg"    images now load when viewing in local browser (as well as using live server as before
+keep in mind checkign sites runnign from local folder as well as live server for errors) still passes npm test
+ */
+
+/* ../images/filename.jpg didn't work. used ./images.filename.jpg */
   {
     name: "Strawberry",
     price: 1.17,
     quantity: 0,
     productId: 3356,
-    image: "../src/images/strawberry.jpg",
+    image: "./images/strawberry.jpg",
   },
 ];
 /* Images provided in /images folder. All images from Unsplash.com
@@ -69,7 +77,7 @@ function increaseQuantity(productId) {
   const itemCart = cart.find((item) => item.productId === productId); //match productId in cart
   if (itemCart) {
     itemCart.quantity++; //increase fruit quantity by 1 if found in cart
-    itemCart.price = Math.round(itemCart.price * 100) / 100; //round to cents
+
   }
 }
 
@@ -121,8 +129,13 @@ function cartTotal() {
     (sum, product) => sum + product.price * product.quantity,
     0
   ); //add up cost of all items with reduce array prototype
-  total = Math.round(total * 100) / 100; //round to cents and return total
-  return total;
+
+
+  total = Math.round(total * 100); //round to cents and return total
+
+
+  return ((total/100).toFixed(2));
+/*   return total; */
 }
 /* Create a function called emptyCart that empties the products from the cart */
 
@@ -145,7 +158,9 @@ function pay(amount) {
     totalPaid = 0; //
     emptyCart(); //empty the cart once payment is complete
   }
-  return remainingBalance; //the remaining balance returned here
+/*   return parseFloat(remainingBalance.toFixed(2)); //the remaining balance returned here */
+
+    return remainingBalance;
 }
 
 //finally passed all the tests!
